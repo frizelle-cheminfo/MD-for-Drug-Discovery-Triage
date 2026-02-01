@@ -1,0 +1,7 @@
+rank,model,median_potency_k5_nM,regret_k5_nM,ef_k5,notes
+1,ExtraTrees,1278.72,3988.91,1.710,Best overall - lowest median potency and regret
+2,SVR,2556.57,18630.40,1.526,Competitive median potency but poor worst-case performance
+3,RandomForest,2597.72,5404.77,1.185,Solid all-around performance
+4,HistGradientBoosting,2876.53,4738.38,1.026,Moderate performance
+5,LightGBM,3006.53,24857.79,1.430,Overfits on small dataset - worst regret
+6,XGBoost,3462.61,7040.30,1.332,Worst overall performance
