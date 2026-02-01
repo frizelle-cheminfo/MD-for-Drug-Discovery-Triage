@@ -3,19 +3,19 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
-**Public-facing repository for the MD-enhanced compound prioritization feasibility study.**
+**Public-facing repository for the MD-enhanced compound prioritisation feasibility study.**
 
 ## Overview
 
-This repository contains anonymized results, figures, and evaluation code from a feasibility pilot investigating whether **short molecular dynamics (MD) simulations** combined with **simple machine learning** can improve compound prioritization in early-stage drug discovery.
+This repository contains anonymised results, figures, and evaluation code from a feasibility pilot investigating whether **short molecular dynamics (MD) simulations** combined with **simple machine learning** can improve compound prioritization in early-stage drug discovery.
 
 ### The Problem
 
-Standard computational compound prioritization relies on molecular docking, which treats proteins as rigid structures. This leads to high false-positive rates and wasted synthesis cycles. Can we do better without resorting to expensive long-timescale MD or complex deep learning?
+Standard computational compound prioritisation relies on molecular docking, which treats proteins as rigid structures. This leads to high false-positive rates and wasted synthesis cycles. Can we do better without resorting to expensive long-timescale MD or complex deep learning?
 
 ### The Approach
 
-We tested whether nanosecond-scale MD simulations (1-5 ns, ~10-30 minutes per compound on consumer GPUs) could extract features that improve ranking performance when combined with tree-based ML models (Random Forest, Extra Trees, Gradient Boosting, SVR).
+We tested whether nanosecond-scale MD simulations (50ps, ~7 minutes per compound on a CPU) could extract features that improve ranking performance when combined with tree-based ML models (Random Forest, Extra Trees, Gradient Boosting, SVR).
 
 ### Key Finding
 
@@ -28,7 +28,6 @@ We tested whether nanosecond-scale MD simulations (1-5 ns, ~10-30 minutes per co
 ```
 .
 ├── README.md                          # This file
-├── TECHNICAL_OVERVIEW.md              # Detailed technical summary
 ├── data/
 │   ├── model_comparison_summary.csv   # 6-model performance comparison
 │   └── feature_set_comparison.csv     # Feature ablation results
@@ -76,7 +75,7 @@ We tested whether nanosecond-scale MD simulations (1-5 ns, ~10-30 minutes per co
 ## Key Metrics Explained
 
 ### Median Potency @5
-The median binding affinity (nM) of the top-5 ranked compounds. **Lower is better.** This directly measures the quality of the shortlist an experimentalist would synthesize.
+The median binding affinity (nM) of the top-5 ranked compounds. **Lower is better.** This directly measures the quality of the shortlist an experimentalist would synthesise.
 
 ### Regret @5
 The difference between the worst compound in the top-5 and the best available compound in the test set. **Lower is better.** Measures "how many dead-ends did we select?"
@@ -106,8 +105,8 @@ The ratio of hit rate in the top-5 vs. random selection. **Higher is better.** E
 5. **Pruned MD+Static**: QC-filtered MD features + static descriptors
 
 ### MD Protocol
-- **Timescale**: 1-5 nanoseconds per compound
-- **Hardware**: Consumer GPUs (~10-30 min/compound)
+- **Timescale**: 50 ps per compound
+- **Hardware**: CPU (~7min/compound)
 - **Features extracted**: RMSD, RMSF, interaction persistence, conformational stability
 
 ---
@@ -154,7 +153,7 @@ python scripts/compute_topk_metrics.py \
   --output results/
 ```
 
-**Note**: This repository contains evaluation code only. MD simulation and feature extraction pipelines are not included (proprietary).
+**Note**: This repository contains evaluation code only. MD simulation and feature extraction pipelines are not included.
 
 ---
 
@@ -187,15 +186,11 @@ To establish industrial relevance, the following experiments are critical:
    - Validate on 500-1000 compounds for the same target
    - Tighten confidence intervals with more folds
 
-2. **Multi-Target Generalization** (Priority: HIGH)
+2. **Multi-Target Generalisation** (Priority: HIGH)
    - Test on 3-5 diverse targets (kinases, GPCRs, proteases, PPIs)
    - Identify where MD adds value vs. where docking suffices
 
-3. **Prospective Wet-Lab Test** (Priority: CRITICAL)
-   - Rank 50 unseen compounds, synthesize top-10 from MD-ranking and top-10 from docking (blinded)
-   - Compare hit rates in forward prediction mode
-
-4. **Feature Attribution Analysis**
+3. **Feature Attribution Analysis**
    - Use SHAP to identify which MD features drive improvement
    - Guide future feature engineering
 
@@ -211,7 +206,7 @@ If you use this work in your research, please cite:
 
 ```bibtex
 @misc{md_compound_prioritization_2026,
-  title={MD-Enhanced Compound Prioritization: A Feasibility Pilot},
+  title={MD-Enhanced Compound Prioritisation: A Feasibility Pilot},
   author={[Anonymized]},
   year={2026},
   howpublished={\url{https://github.com/[username]/md-compound-prioritization}},
@@ -228,7 +223,7 @@ This project is licensed under the MIT License - see below for details.
 ```
 MIT License
 
-Copyright (c) 2026 [Anonymized Author]
+Copyright (c) 2026 Mitchell Frizelle, Albion
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
