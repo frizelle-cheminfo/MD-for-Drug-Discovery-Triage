@@ -15,7 +15,7 @@ Standard computational compound prioritisation relies on molecular docking, whic
 
 ### The Approach
 
-We tested whether nanosecond-scale MD simulations (50ps, ~7 minutes per compound on a CPU) could extract features that improve ranking performance when combined with tree-based ML models (Random Forest, Extra Trees, Gradient Boosting, SVR).
+We tested whether pico-scale MD simulations (50ps, ~7 minutes per compound on a CPU) could extract features that improve ranking performance when combined with tree-based ML models (Random Forest, Extra Trees, Gradient Boosting, SVR).
 
 ### Key Finding
 
